@@ -1,5 +1,5 @@
-import BaseController from "../../dist/controller/index";
-import {Controller, Data} from "../../dist/decorator/page/index";
+import BaseController from '../../dist/controller/index';
+import {Controller, Data} from '../../dist/decorator/page';
 
 @Controller
 export class IndexController extends BaseController {

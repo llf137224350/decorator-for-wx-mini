@@ -1,6 +1,6 @@
 {
   "name": "decorator-for-wx-mini",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "改变微信小程序逻辑代码的书写方式",
   "miniprogram": "dist",
   "repository": {
@@ -24,7 +24,7 @@
     "url": "https://github.com/llf137224350/decorator-for-wx-mini/issues"
   },
   "files": [
-    "/miniprogram/dist"
+    "miniprogram/dist"
   ],
   "author": "い 狂奔的蜗牛",
   "license": "ISC",
