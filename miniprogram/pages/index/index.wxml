@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="count" catchtap="onClickHandle">当前数量：{{count}}</view>
+
+  <view class="test">
+    <test></test>
+  </view>
+</view>
