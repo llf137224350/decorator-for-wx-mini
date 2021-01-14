@@ -3,7 +3,7 @@
  * @date 2020/6/9
  * @desc 组件装饰器
  */
-function Components(target: any) {
+export function Components(target: any) {
   Component(new target());
 }
 
@@ -12,7 +12,7 @@ function Components(target: any) {
  * @param classes
  * @constructor
  */
-function ExternalClasses(classes: string[]) {
+export function ExternalClasses(classes: string[]) {
   return function (target: any, propertyKey?: string) {
     console.log(propertyKey);
     if (!target.externalClasses) {
@@ -28,7 +28,7 @@ function ExternalClasses(classes: string[]) {
  * @param defaultValue 默认值
  * @constructor
  */
-function Prop(type: any = Object, defaultValue: any = {}) {
+export function Prop(type: any = Object, defaultValue: any = {}) {
   return function (target: any, propertyKey: string) {
     if (!target.properties) {
       target['properties'] = {};
@@ -45,7 +45,7 @@ function Prop(type: any = Object, defaultValue: any = {}) {
  * @param defaultValue 默认值
  * @constructor
  */
-function Data(defaultValue: any = {}) {
+export function Data(defaultValue: any = {}) {
   return function (target: any, propertyKey: string) {
     if (!target.data) {
       target['data'] = {};
@@ -58,7 +58,7 @@ function Data(defaultValue: any = {}) {
  * methods
  * @constructor
  */
-function Method() {
+export function Method() {
   return function (target: any, propertyKey: string) {
     if (!target.methods) {
       target['methods'] = {};
@@ -73,7 +73,7 @@ function Method() {
  * @param monitoredObject 被监听对象key
  * @constructor
  */
-function Observers(monitoredObject: string) {
+export function Observers(monitoredObject: string) {
   return function (target: any, propertyKey: string) {
     if (!target.observers) {
       target['observers'] = {};
@@ -86,7 +86,7 @@ function Observers(monitoredObject: string) {
  * 生命周期
  * @constructor
  */
-function Lifetimes() {
+export function Lifetimes() {
   return function (target: any, propertyKey: string) {
     if (!target.lifetimes) {
       target['lifetimes'] = {};
@@ -99,7 +99,7 @@ function Lifetimes() {
  * 页面生命周期
  * @constructor
  */
-function PageLifetimes() {
+export function PageLifetimes() {
   return function (target: any, propertyKey: string) {
     if (!target.pageLifetimes) {
       target['pageLifetimes'] = {};
@@ -108,14 +108,3 @@ function PageLifetimes() {
   };
 }
 
-
-export = {
-  Component: Components,
-  ExternalClasses,
-  Prop,
-  Data,
-  Method,
-  Observers,
-  Lifetimes,
-  PageLifetimes
-}
