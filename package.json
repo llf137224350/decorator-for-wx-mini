@@ -1,14 +1,37 @@
 {
-  "name": "miniprogram-ts-quickstart",
-  "version": "1.0.0",
-  "description": "",
+  "name": "decorator-for-wx-mini",
+  "version": "1.0.1",
+  "description": "改变微信小程序逻辑代码的书写方式",
+  "miniprogram": "dist",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llf137224350/decorator-for-wx-mini.git"
+  },
   "scripts": {
     "compile": "./node_modules/typescript/bin/tsc",
     "tsc": "node ./node_modules/typescript/lib/tsc.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "",
+  "keywords": [
+    "微信小程序",
+    "TypeScript",
+    "miniprogram",
+    "component",
+    "Component",
+    "controller",
+    "Controller"
+  ],
+  "bugs": {
+    "url": "https://github.com/llf137224350/decorator-for-wx-mini/issues"
+  },
+  "files": [
+    "/miniprogram/dist"
+  ],
+  "author": "い 狂奔的蜗牛",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/llf137224350/decorator-for-wx-mini#readme",
   "dependencies": {
   },
   "devDependencies": {

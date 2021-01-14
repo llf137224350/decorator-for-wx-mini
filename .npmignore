@@ -1,0 +1,12 @@
+/miniprogram/components/*
+/miniprogram/pages/*
+/miniprogram/utils/*
+app.*
+.*
+sitemap.json
+tsconfig.json
+project.config.json
+typings
+node_modules
+
+
