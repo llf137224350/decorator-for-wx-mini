@@ -1,6 +1,4 @@
-import {Component} from '../../dist/decorator/component/index';
+import { Component } from '../../base/decorator/component';
 
 @Component
-export default class Test {
-
-}
+export default class Test {}

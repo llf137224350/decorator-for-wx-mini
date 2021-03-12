@@ -3,8 +3,8 @@
 **以下代码实现一个计数器功能**
 
 ````javascript
-import BaseController from '../../dist/controller/index';
-import {Controller, Data} from '../../dist/decorator/page';
+import BaseController from '../../base/controller/index';
+import {Controller, Data} from '../../base/decorator/page';
 
 @Controller
 export class IndexController extends BaseController {

@@ -24,7 +24,7 @@
     "url": "https://github.com/llf137224350/decorator-for-wx-mini/issues"
   },
   "files": [
-    "miniprogram/dist"
+    "miniprogram/base"
   ],
   "author": "い 狂奔的蜗牛",
   "license": "ISC",

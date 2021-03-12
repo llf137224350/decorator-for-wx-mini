@@ -3,7 +3,7 @@
  * @date 2020/6/9
  * @desc 组件装饰器
  */
-export function Components(target: any) {
+function Components(target: any) {
   Component(new target());
 }
 
@@ -12,7 +12,7 @@ export function Components(target: any) {
  * @param classes
  * @constructor
  */
-export function ExternalClasses(classes: string[]) {
+function ExternalClasses(classes: string[]) {
   return function (target: any, propertyKey?: string) {
     console.log(propertyKey);
     if (!target.externalClasses) {
@@ -28,7 +28,7 @@ export function ExternalClasses(classes: string[]) {
  * @param defaultValue 默认值
  * @constructor
  */
-export function Prop(type: any = Object, defaultValue: any = {}) {
+function Prop(type: any = Object, defaultValue: any = {}) {
   return function (target: any, propertyKey: string) {
     if (!target.properties) {
       target['properties'] = {};
@@ -45,7 +45,7 @@ export function Prop(type: any = Object, defaultValue: any = {}) {
  * @param defaultValue 默认值
  * @constructor
  */
-export function Data(defaultValue: any = {}) {
+function Data(defaultValue: any = {}) {
   return function (target: any, propertyKey: string) {
     if (!target.data) {
       target['data'] = {};
@@ -58,7 +58,7 @@ export function Data(defaultValue: any = {}) {
  * methods
  * @constructor
  */
-export function Method() {
+function Method() {
   return function (target: any, propertyKey: string) {
     if (!target.methods) {
       target['methods'] = {};
@@ -67,13 +67,12 @@ export function Method() {
   };
 }
 
-
 /**
  * 属性监听
  * @param monitoredObject 被监听对象key
  * @constructor
  */
-export function Observers(monitoredObject: string) {
+function Observers(monitoredObject: string) {
   return function (target: any, propertyKey: string) {
     if (!target.observers) {
       target['observers'] = {};
@@ -86,7 +85,7 @@ export function Observers(monitoredObject: string) {
  * 生命周期
  * @constructor
  */
-export function Lifetimes() {
+function Lifetimes() {
   return function (target: any, propertyKey: string) {
     if (!target.lifetimes) {
       target['lifetimes'] = {};
@@ -99,7 +98,7 @@ export function Lifetimes() {
  * 页面生命周期
  * @constructor
  */
-export function PageLifetimes() {
+function PageLifetimes() {
   return function (target: any, propertyKey: string) {
     if (!target.pageLifetimes) {
       target['pageLifetimes'] = {};
@@ -107,4 +106,13 @@ export function PageLifetimes() {
     target.pageLifetimes[propertyKey] = target[propertyKey];
   };
 }
-
+export {
+  Components as Component,
+  ExternalClasses,
+  Prop,
+  Data,
+  Method,
+  Observers,
+  Lifetimes,
+  PageLifetimes
+};

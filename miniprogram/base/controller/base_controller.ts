@@ -15,7 +15,7 @@ export class BaseController {
       const value = this[key];
       this._reactive(key);
       this[key] = value;
-    })
+    });
   }
 
   public _reactive(key: string) {
@@ -28,7 +28,6 @@ export class BaseController {
           [key]: val
         });
       }
-    })
+    });
   }
 }
-
