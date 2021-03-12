@@ -1,4 +1,4 @@
-.avator {
+.avatar {
   width: 140rpx;
   height: 140rpx;
   border-radius: 50%;
@@ -12,6 +12,6 @@
 
 .other {
   margin-top: 20rpx;
-  display: flex;
+  color: #666;
 }
 

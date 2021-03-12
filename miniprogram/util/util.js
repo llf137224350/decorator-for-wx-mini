@@ -1,0 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.formatNumber = void 0;
+function formatNumber(num) {
+    num = num.toString();
+    return ("0" + num).slice(-2);
+}
+exports.formatNumber = formatNumber;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInV0aWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBSUEsU0FBZ0IsWUFBWSxDQUFDLEdBQW9CO0lBQy9DLEdBQUcsR0FBRyxHQUFHLENBQUMsUUFBUSxFQUFFLENBQUM7SUFDckIsT0FBTyxDQUFBLE1BQUksR0FBSyxDQUFBLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUM7QUFDN0IsQ0FBQztBQUhELG9DQUdDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiDlsI/kuo4xMOeahOWJjeihpTDmk43kvZxcbiAqIEBwYXJhbSBudW1cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGZvcm1hdE51bWJlcihudW06IG51bWJlciB8IHN0cmluZyk6IHN0cmluZyB7XG4gIG51bSA9IG51bS50b1N0cmluZygpO1xuICByZXR1cm4gYDAke251bX1gLnNsaWNlKC0yKTtcbn1cbiJdfQ==

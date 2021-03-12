@@ -3,6 +3,7 @@
  * @Date: 2020-04-29 15:51:38
  * @Description: 装饰器
  */
+
 /**
  * 页面controller装饰器
  * @param Target
@@ -11,10 +12,7 @@
 function Controller(Target: any) {
   const target = new Target();
   const onLoadStr = target.onLoad.toString();
-  if (
-    onLoadStr.indexOf('this._init();') === -1 &&
-    onLoadStr.indexOf('_super.prototype.onLoad.call(this);') === -1
-  ) {
+  if (onLoadStr && onLoadStr.indexOf('this._init()') === -1 && onLoadStr.indexOf('_super.prototype.onLoad.call(this)') === -1) {
     throw new Error('子类复写onLoad方式时，必须调用super.onLoad();方法');
   }
   Page(target);

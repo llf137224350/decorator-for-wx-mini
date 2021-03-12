@@ -4,13 +4,11 @@ import { Controller, Data } from '../../base/decorator/page';
 @Controller
 export class IndexController extends BaseController {
   @Data
-  public count: number = 0;
+  public userInfo: any = {};
 
-  public onLoad() {
-    super.onLoad();
-  }
-
-  public onClickHandle() {
-    this.count += 1;
+  public onGetUserInfoHandle(e: any) {
+    if (e.detail.errMsg === 'getUserInfo:ok') {
+      this.userInfo = e.detail.userInfo;
+    }
   }
 }
