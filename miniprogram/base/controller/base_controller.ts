@@ -1,12 +1,15 @@
+/**
+ * 页面控制器基类
+ */
 export class BaseController {
   // setData
   [x: string]: any;
 
-  public onLoad() {
+  protected onLoad() {
     this._init();
   }
 
-  public _init() {
+  private _init() {
     if (!this.data) {
       return;
     }
@@ -18,7 +21,7 @@ export class BaseController {
     });
   }
 
-  public _reactive(key: string) {
+  private _reactive(key: string) {
     Object.defineProperty(this, key, {
       get() {
         return this.data[key];
