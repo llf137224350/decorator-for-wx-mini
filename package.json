@@ -5,7 +5,7 @@
   "miniprogram": "dist",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/llf137224350/decorator-for-wx-mini.git"
+    "url": "git+https://github.com/llf137224350/miniprogram_ts_template.git"
   },
   "scripts": {
     "compile": "./node_modules/typescript/bin/tsc",
@@ -21,7 +21,7 @@
     "Controller"
   ],
   "bugs": {
-    "url": "https://github.com/llf137224350/decorator-for-wx-mini/issues"
+    "url": "https://github.com/llf137224350/miniprogram_ts_template/issues"
   },
   "files": [
     "miniprogram/base"
@@ -31,7 +31,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/llf137224350/decorator-for-wx-mini#readme",
+  "homepage": "https://github.com/llf137224350/miniprogram_ts_template#readme",
   "dependencies": {
   },
   "devDependencies": {
