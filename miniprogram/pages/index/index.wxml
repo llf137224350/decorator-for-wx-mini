@@ -1,8 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="count" catchtap="onClickHandle">当前数量：{{count}}</view>
-
-  <view class="test">
-    <test></test>
+  <view class="avator">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="nickname">
+    <open-data type="userNickName"></open-data>
+  </view>
+  <view class="other">
+    <view>性别：</view>
+    <open-data type="userGender" lang="zh_CN"></open-data>
   </view>
 </view>
