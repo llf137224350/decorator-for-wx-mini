@@ -5,7 +5,7 @@
  */
 import { Config } from './config';
 
-const CryptoJS = require('../../libs/crypto-js.js');
+const CryptoJS = require('../libs/crypto-js.js');
 
 /**
  * DES  ECB模式加密
