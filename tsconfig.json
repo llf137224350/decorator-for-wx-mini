@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDirs": ["./miniprogram"],
     "strictNullChecks": true,
     "noImplicitAny": true,
     "module": "CommonJS",

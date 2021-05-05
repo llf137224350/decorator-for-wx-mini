@@ -10,6 +10,10 @@
   "scripts": {
     "compile": "./node_modules/typescript/bin/tsc",
     "tsc": "node ./node_modules/typescript/lib/tsc.js",
+    "watch": "node ./scripts/watch_less.js",
+    "build": "node ./template/build.js",
+    "page": "node ./template/page.js",
+    "component": "node ./template/component.js",
     "prepare": "husky install"
   },
   "keywords": [
@@ -38,10 +42,15 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.1",
     "@commitlint/config-conventional": "^12.1.1",
+    "less": "4^.1.1",
+    "chokidar": "^3.4.3",
+    "console-color-mr": "^2.0.1",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "miniprogram-api-typings": "^2.8.3-1",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.3333",
+    "tslint": "^6.1.3",
+    "shelljs": "^0.8.4"
   },
   "husky": {
     "hooks": {

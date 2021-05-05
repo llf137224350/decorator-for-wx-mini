@@ -1,0 +1,10 @@
+{
+  "backgroundColorTop": "#F2F2F2",
+  "backgroundColorBottom": "#F2F2F2",
+  "navigationBarTitleText": "template",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#FF754D",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+  }
+}

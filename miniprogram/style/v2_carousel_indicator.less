@@ -1,0 +1,25 @@
+.carousel-indicator {
+  position: absolute;
+  left: 50%;
+  bottom: 29rpx;
+  display: flex;
+  height: 10rpx;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  .item {
+    margin-left: 20rpx;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 50%;
+    background: #D3C6C1;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &.selected {
+      background: #FF754D;
+    }
+  }
+}

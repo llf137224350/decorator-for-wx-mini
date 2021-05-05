@@ -4,7 +4,7 @@
  * @param params
  */
 import ShowModalSuccessCallbackResult = WechatMiniprogram.ShowModalSuccessCallbackResult;
-import { Constant } from '../common/constant';
+import { Constant } from '../common/ts/constant';
 
 export function wxApi2Promise(target: Function, params: any = {}) {
   return new Promise((resolve, rejest) => {

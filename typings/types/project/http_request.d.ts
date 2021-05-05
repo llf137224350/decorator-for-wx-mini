@@ -1,7 +1,7 @@
 /**
  * 网络请求标准返回
  */
-export interface IResult<T> {
+export interface Result<T> {
   code: number;
   data: T;
   message: string;
