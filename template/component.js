@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2020/6/17
- * @Description: 创建页面
+ * @Description: 创建组件
  */
 const path = require('path');
 const fs = require('fs');
@@ -27,7 +27,24 @@ function writeContent2File(content, fileName) {
   // 写入数据到对应文件
   fs.writeFileSync(tempPath, data);
 }
-
+// 首字母大写
+function firstLetterCapitalized(str) {
+  if (!str) {
+    return '';
+  }
+  const firstLetter = str.slice(0, 1);
+  const other = str.slice(1);
+  return firstLetter.toUpperCase() + other;
+}
+// 获取类名
+function getName() {
+  const arr = componentName.split('_');
+  let result = '';
+  arr.forEach((item) => {
+    result += firstLetterCapitalized(item);
+  });
+  return result;
+}
 // 读取文件内容
 function readFileContent(path, fileName) {
   let content = fs.readFileSync(path).toString();
@@ -36,7 +53,7 @@ function readFileContent(path, fileName) {
     const importStr = `import { Component } from '${decoratorRelativePath}';\n`;
     content = content.replace(/\'import\';\n/, importStr);
     content = content.replace(/\/\/\s\@ts-nocheck\n/gs, '');
-    content = content.replace(/\$/gi, componentName);
+    content = content.replace(/\$/gi, getName());
     // 替换年月日
     const date = new Date();
     const year = date.getFullYear();

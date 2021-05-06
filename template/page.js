@@ -12,11 +12,11 @@ const execSync = require('child_process').execSync;
 // 目标路径 - 执行脚本命令所在目录
 const targetPath = process.env.INIT_CWD;
 // controller相对路径
-const controllerRelativePath = path.relative(targetPath, '../miniprogram/base/controller/base_controller').replace('../miniprogram/','');
+const controllerRelativePath = path.relative(targetPath, '../miniprogram/base/controller/base_controller').replace('../miniprogram/', '');
 // 装饰器相对路径
-const decoratorRelativePath = path.relative(targetPath, '../miniprogram/base/decorator/page').replace('../miniprogram/','');
+const decoratorRelativePath = path.relative(targetPath, '../miniprogram/base/decorator/page').replace('../miniprogram/', '');
 // base less 相对路径
-const variableLessRelativePath = path.relative(targetPath, '../miniprogram/style/variable.less').replace('../miniprogram/','');
+const variableLessRelativePath = path.relative(targetPath, '../miniprogram/style/variable.less').replace('../miniprogram/', '');
 
 // 模板路径
 const sourcePath = path.resolve(__dirname, './page_template');
@@ -34,7 +34,24 @@ function writeContent2File(content, fileName) {
   // 写入数据到对应文件
   fs.writeFileSync(tempPath, data);
 }
-
+// 首字母大写
+function firstLetterCapitalized(str) {
+  if (!str) {
+    return '';
+  }
+  const firstLetter = str.slice(0, 1);
+  const other = str.slice(1);
+  return firstLetter.toUpperCase() + other;
+}
+// 获取类名
+function getName() {
+  const arr = pageName.split('_');
+  let result = '';
+  arr.forEach((item) => {
+    result += firstLetterCapitalized(item);
+  });
+  return result;
+}
 // 读取文件内容
 function readFileContent(path, fileName) {
   let content = fs.readFileSync(path).toString();
@@ -43,7 +60,7 @@ function readFileContent(path, fileName) {
     const importStr = `import { BaseController } from '${controllerRelativePath}';
 import { Controller } from '${decoratorRelativePath}';\n`;
     content = content.replace(/\'import\';\n/, importStr);
-    content = content.replace(/\$/gi, pageName);
+    content = content.replace(/\$/gi, getName());
     content = content.replace(/\/\/\s\@ts-nocheck\n/gs, '');
     // 替换年月日
     content = setDate(content);
