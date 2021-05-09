@@ -1,13 +1,14 @@
 /*
  * @Author: い 狂奔的蜗牛
- * @Date: 2020-04-29 15:51:38
- * @Description: 装饰器
+ * @Date: 2021-05-06 00:04:21
+ * @LastEditTime: 2021-05-09 20:41:02
+ * @Description: 页面装饰器
  */
 
 /**
- * 页面controller装饰器
- * @param Target
- * @constructor
+ * @description: 页面controller装饰器
+ * @param {any} Target
+ * @return {*}
  */
 function Controller(Target: any) {
   const target = new Target();
@@ -19,10 +20,10 @@ function Controller(Target: any) {
 }
 
 /**
- * 页面data属性中属性装饰器
- * @param target
- * @param key
- * @constructor
+ * @description: 页面data属性中属性装饰器
+ * @param {any} target
+ * @param {string} key
+ * @return {*}
  */
 function Data(target: any, key: string) {
   if (!target.data) {

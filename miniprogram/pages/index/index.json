@@ -6,5 +6,6 @@
   "navigationBarBackgroundColor": "#FF754D",
   "navigationBarTextStyle": "white",
   "usingComponents": {
+    "hello-world":"../../components/HelloWorld/HelloWorld"
   }
 }

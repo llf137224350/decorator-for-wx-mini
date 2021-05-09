@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/default/HelloWorld/HelloWorld",
     "pages/index/index"
   ],
   "window": {

@@ -1,76 +1,76 @@
-/**
- * @author い 狂奔的蜗牛
- * @date 2020/6/9
- * @desc 组件装饰器
+/*
+ * @Author: い 狂奔的蜗牛
+ * @Date: 2021-05-06 00:04:21
+ * @LastEditTime: 2021-05-09 20:40:28
+ * @Description:组件装饰器
  */
-function Components(target: any) {
-  Component(new target());
-}
 
 /**
- * 组件外覆盖组件内样式暴露class
- * @param classes
- * @constructor
+ * @description: 声明组件
+ * @param {any} Target
+ * @return {*}
  */
-function ExternalClasses(classes: string[]) {
-  return function (target: any, propertyKey?: string) {
-    console.log(propertyKey);
-    if (!target.externalClasses) {
-      target['externalClasses'] = [];
-    }
-    target.externalClasses = classes;
+function Components(Target: any) {
+  const target = new Target();
+  // 处理组件属性
+  target.__proto__.__proto__._init.call(target);
+  Component(target);
+}
+/**
+ * @description: 定义组件属性
+ * @param {any} target
+ * @param {string} propertyKey
+ * @return {*}
+ */
+function Prop(target: any, propertyKey: string) {
+  if (!target.properties) {
+    target['properties'] = {};
+  }
+  target.properties[propertyKey] = {
+    type: (typeof propertyKey).constructor as StringConstructor,
+    value: null
   };
 }
-
 /**
- * properties
- * @param type 类型
- * @param defaultValue 默认值
- * @constructor
+ * @description:  定义data数据
+ * @param {any} target
+ * @param {string} propertyKey
+ * @return {*}
  */
-function Prop(type: any = Object, defaultValue: any = {}) {
-  return function (target: any, propertyKey: string) {
-    if (!target.properties) {
-      target['properties'] = {};
-    }
-    target.properties[propertyKey] = {
-      type: type,
-      value: defaultValue
-    };
-  };
+function Data(target: any, propertyKey: string) {
+  if (!target.data) {
+    target['data'] = {};
+  }
+  target.data[propertyKey] = null;
 }
-
 /**
- * data
- * @param defaultValue 默认值
- * @constructor
+ * @description: 定义方法
+ * @param {any} target
+ * @param {string} propertyKey
+ * @return {*}
  */
-function Data(defaultValue: any = {}) {
-  return function (target: any, propertyKey: string) {
-    if (!target.data) {
-      target['data'] = {};
-    }
-    target.data[propertyKey] = defaultValue;
-  };
+function Method(target: any, propertyKey: string) {
+  if (!target.methods) {
+    target['methods'] = {};
+  }
+  target.methods[propertyKey] = target[propertyKey];
 }
-
 /**
- * methods
- * @constructor
+ * @description: 对外暴露css扩展
+ * @param {any} target
+ * @param {string} propertyKey
+ * @return {*}
  */
-function Method() {
-  return function (target: any, propertyKey: string) {
-    if (!target.methods) {
-      target['methods'] = {};
-    }
-    target.methods[propertyKey] = target[propertyKey];
-  };
+function ExternalClasses(target: any, propertyKey?: string) {
+  if (!target.externalClasses) {
+    target['externalClasses'] = [];
+  }
+  target.externalClasses = [...target.externalClasses, propertyKey];
 }
-
 /**
- * 属性监听
- * @param monitoredObject 被监听对象key
- * @constructor
+ * @description: 监听属性值的更改
+ * @param {string} monitoredObject
+ * @return {*}
  */
 function Observers(monitoredObject: string) {
   return function (target: any, propertyKey: string) {
@@ -80,39 +80,29 @@ function Observers(monitoredObject: string) {
     target.observers[monitoredObject] = target[propertyKey];
   };
 }
-
 /**
- * 生命周期
- * @constructor
+ * @description:  组件生命周期
+ * @param {any} target
+ * @param {string} propertyKey
+ * @return {*}
  */
-function Lifetimes() {
-  return function (target: any, propertyKey: string) {
-    if (!target.lifetimes) {
-      target['lifetimes'] = {};
-    }
-    target.lifetimes[propertyKey] = target[propertyKey];
-  };
+function Lifetimes(target: any, propertyKey: string) {
+  if (!target.lifetimes) {
+    target['lifetimes'] = {};
+  }
+  target.lifetimes[propertyKey] = target[propertyKey];
 }
 
 /**
- * 页面生命周期
- * @constructor
+ * @description:  页面生命周期
+ * @param {any} target
+ * @param {string} propertyKey
+ * @return {*}
  */
-function PageLifetimes() {
-  return function (target: any, propertyKey: string) {
-    if (!target.pageLifetimes) {
-      target['pageLifetimes'] = {};
-    }
-    target.pageLifetimes[propertyKey] = target[propertyKey];
-  };
+function PageLifetimes(target: any, propertyKey: string) {
+  if (!target.pageLifetimes) {
+    target['pageLifetimes'] = {};
+  }
+  target.pageLifetimes[propertyKey] = target[propertyKey];
 }
-export {
-  Components as Component,
-  ExternalClasses,
-  Prop,
-  Data,
-  Method,
-  Observers,
-  Lifetimes,
-  PageLifetimes
-};
+export { Components as Component, ExternalClasses, Prop, Data, Method, Observers, Lifetimes, PageLifetimes };
