@@ -99,7 +99,7 @@ function readSourceDir() {
   });
 
   // 更新app.json
-  execSync('npm run build', {
+  execSync('npm run sync', {
     stdio: 'inherit'
   });
 }
