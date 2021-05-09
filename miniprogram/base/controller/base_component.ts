@@ -1,15 +1,35 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-09 17:07:57
- * @LastEditTime: 2021-05-09 22:40:00
+ * @LastEditTime: 2021-05-09 23:26:16
  * @Description:
  */
-
+interface TriggerEventOption {
+  /** 事件是否冒泡
+   *
+   * 默认值： `false`
+   */
+  bubbles?: boolean;
+  /** 事件是否可以穿越组件边界，为false时，事件将只能在引用组件的节点树上触发，不进入其他任何组件内部
+   *
+   * 默认值： `false`
+   */
+  composed?: boolean;
+  /** 事件是否拥有捕获阶段
+   *
+   * 默认值： `false`
+   */
+  capturePhase?: boolean;
+}
 export class BaseComponent<P, D> {
   [key: string]: any;
+  // 设置数据
+  public ['setData']: (data: Partial<D>, callback?: () => void) => void;
+  // 向父元素派发事件
+  public ['triggerEvent']: (name: string, detail?: unknown, options?: TriggerEventOption) => void;
+
   public properties?: P;
   public data?: D;
-
   public _init() {
     this._initProperties();
     this._initData();
