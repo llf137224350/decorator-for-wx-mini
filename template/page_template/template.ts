@@ -7,4 +7,6 @@
  * @Description:
  */
 @Controller
-export default class $ extends BaseController {}
+export default class $ extends BaseController {
+
+}

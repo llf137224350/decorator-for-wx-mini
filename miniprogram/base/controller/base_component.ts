@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-09 17:07:57
- * @LastEditTime: 2021-05-09 20:32:03
+ * @LastEditTime: 2021-05-09 22:40:00
  * @Description:
  */
 
@@ -27,6 +27,7 @@ export class BaseComponent<P, D> {
     keys.forEach((key: string) => {
       const value = this[key];
       const newKey = key as keyof P;
+      (this.properties![newKey] as any).type = this[key].constructor as StringConstructor;
       (this.properties![newKey] as any).value = value;
     });
   }

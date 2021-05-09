@@ -1,10 +1,10 @@
 {
-  "backgroundColorTop": "#F2F2F2",
-  "backgroundColorBottom": "#F2F2F2",
-  "navigationBarTitleText": "template",
+  "backgroundColorTop": "#f1f0f5",
+  "backgroundColorBottom": "#f1f0f5",
+  "navigationBarTitleText": "车主云",
   "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#FF754D",
-  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#f1f0f5",
+  "navigationBarTextStyle": "black",
   "usingComponents": {
   }
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2020/6/17
- * @Description: 创建组件
+ * @Description: 创建页面
  */
 const path = require('path');
 const fs = require('fs');
@@ -10,6 +10,8 @@ require('console-color-mr');
 const targetPath = process.env.INIT_CWD;
 // 装饰器相对路径
 const decoratorRelativePath = path.relative(targetPath, '../miniprogram/base/decorator/component').replace('../miniprogram/','');
+// controller相对路径
+const controllerRelativePath = path.relative(targetPath, '../miniprogram/base/controller/base_component').replace('../miniprogram/', '');
 // 模板路径
 const sourcePath = path.resolve(__dirname, './component_template');
 // base less 相对路径
@@ -50,7 +52,8 @@ function readFileContent(path, fileName) {
   let content = fs.readFileSync(path).toString();
   if (fileName.indexOf('.ts') !== -1) {
     // 替换引入
-    const importStr = `import { Component } from '${decoratorRelativePath}';\n`;
+    const importStr = `import { BaseComponent } from '${controllerRelativePath}';
+import { Component } from '${decoratorRelativePath}';\n`;
     content = content.replace(/\'import\';\n/, importStr);
     content = content.replace(/\/\/\s\@ts-nocheck\n/gs, '');
     content = content.replace(/\$/gi, getName());

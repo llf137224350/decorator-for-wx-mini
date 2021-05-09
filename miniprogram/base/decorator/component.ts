@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-06 00:04:21
- * @LastEditTime: 2021-05-09 20:40:28
+ * @LastEditTime: 2021-05-09 22:36:08
  * @Description:组件装饰器
  */
 
@@ -27,7 +27,7 @@ function Prop(target: any, propertyKey: string) {
     target['properties'] = {};
   }
   target.properties[propertyKey] = {
-    type: (typeof propertyKey).constructor as StringConstructor,
+    type: Object,
     value: null
   };
 }

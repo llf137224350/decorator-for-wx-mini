@@ -76,7 +76,7 @@ function getAllPagePath(basePath) {
     } else {
       const tempPath = basePath +'/'+ file;
       const extname = path.extname(tempPath);
-      if ('.wxml' === extname && file.indexOf('.skeleton.wxml') === -1) {
+      if ('.wxml' === extname && file.indexOf('.skeleton.wxml') === -1 && tempPath.indexOf('components') === -1) {
         pages.push(tempPath.replace(extname,''))
       }
     }
