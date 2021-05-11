@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-09 17:07:57
- * @LastEditTime: 2021-05-11 16:52:15
+ * @LastEditTime: 2021-05-11 17:00:51
  * @Description:
  */
 interface TriggerEventOption {
@@ -86,7 +86,5 @@ export class BaseComponent<P, D> {
       return;
     }
     this.behaviors = this.behaviors.reduce((pre = [], key: string) => [...pre, ...this[key]], []);
-    console.log(this.behaviors);
-
   }
 }

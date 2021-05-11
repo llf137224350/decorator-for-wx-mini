@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-06 00:04:21
- * @LastEditTime: 2021-05-11 16:54:00
+ * @LastEditTime: 2021-05-11 17:00:24
  * @Description:组件装饰器
  */
 
@@ -68,7 +68,7 @@ function ExternalClasses(target: any, propertyKey: string) {
   target.externalClasses = [...target.externalClasses, propertyKey];
 }
 /**
- * 组件逻辑服用
+ * 组件逻辑复用
  * @param target
  * @param propertyKey
  */
