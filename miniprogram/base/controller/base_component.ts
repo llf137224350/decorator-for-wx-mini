@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-09 17:07:57
- * @LastEditTime: 2021-05-11 17:00:51
+ * @LastEditTime: 2021-05-11 23:35:26
  * @Description:
  */
 interface TriggerEventOption {
@@ -21,15 +21,18 @@ interface TriggerEventOption {
    */
   capturePhase?: boolean;
 }
+
 export class BaseComponent<P, D> {
   [key: string]: any;
   // 设置数据
   public ['setData']: (data: Partial<D>, callback?: () => void) => void;
   // 向父元素派发事件
   public ['triggerEvent']: (name: string, detail?: unknown, options?: TriggerEventOption) => void;
+  // 组件属性
+  public properties = {} as P;
+  // 组件自己定义的数据
+  public data = {} as D;
 
-  public properties?: P;
-  public data?: D;
   public _init() {
     this._initProperties();
     this._initData();
@@ -44,6 +47,7 @@ export class BaseComponent<P, D> {
     if (!this.properties) {
       return;
     }
+    this.properties = this.__proto__.properties;
     const keys = Object.keys(this.properties!);
     keys.forEach((key: string) => {
       const value = this[key];
@@ -60,6 +64,7 @@ export class BaseComponent<P, D> {
     if (!this.data) {
       return;
     }
+    this.data = this.__proto__.data;
     const keys = Object.keys(this.data!);
     keys.forEach((key: string) => {
       const value = this[key];
