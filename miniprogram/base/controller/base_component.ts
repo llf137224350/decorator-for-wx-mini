@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-09 17:07:57
- * @LastEditTime: 2021-05-11 23:35:26
+ * @LastEditTime: 2021-05-12 00:00:53
  * @Description:
  */
 interface TriggerEventOption {
@@ -36,24 +36,18 @@ export class BaseComponent<P, D> {
   public _init() {
     this._initProperties();
     this._initData();
-    this._initExternalClasses();
-    this._initBehaviors();
+    this._initValueIsArray('externalClasses');
+    this._initValueIsArray('behaviors');
   }
   /**
    *  初始化处理properties
    * @returns
    */
   public _initProperties() {
-    if (!this.properties) {
-      return;
-    }
     this.properties = this.__proto__.properties;
-    const keys = Object.keys(this.properties!);
-    keys.forEach((key: string) => {
-      const value = this[key];
-      const newKey = key as keyof P;
-      (this.properties![newKey] as any).type = this[key].constructor as StringConstructor;
-      (this.properties![newKey] as any).value = value;
+    Object.keys(this.properties).forEach((key: string) => {
+      (this.properties[key as keyof P] as { type?: unknown }).type = this[key].constructor as StringConstructor;
+      (this.properties[key as keyof P] as { value?: unknown }).value = this[key];
     });
   }
   /**
@@ -61,35 +55,17 @@ export class BaseComponent<P, D> {
    * @returns
    */
   public _initData() {
-    if (!this.data) {
-      return;
-    }
     this.data = this.__proto__.data;
-    const keys = Object.keys(this.data!);
-    keys.forEach((key: string) => {
-      const value = this[key];
-      const newKey = key as keyof D;
-      this.data![newKey] = value;
-    });
+    Object.keys(this.data).forEach((key: string) => (this.data[key as keyof D] = this[key]));
   }
   /**
-   * 初始化处理 externalClasses
+   * 初始化处理 externalClasses/behaviors
    * @returns
    */
-  public _initExternalClasses() {
-    if (!this.externalClasses) {
+  public _initValueIsArray(key: string) {
+    if (!this[key]) {
       return;
     }
-    this.externalClasses = this.externalClasses.reduce((pre = [], key: string) => [...pre, ...this[key]], []);
-  }
-  /**
-   * behaviors 逻辑复用
-   * @returns
-   */
-  public _initBehaviors() {
-    if (!this.behaviors) {
-      return;
-    }
-    this.behaviors = this.behaviors.reduce((pre = [], key: string) => [...pre, ...this[key]], []);
+    this[key] = this[key].reduce((pre = [], key: string) => [...pre, ...this[key]], []);
   }
 }
