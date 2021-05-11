@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-09 17:07:57
- * @LastEditTime: 2021-05-09 23:26:16
+ * @LastEditTime: 2021-05-11 16:52:15
  * @Description:
  */
 interface TriggerEventOption {
@@ -34,6 +34,7 @@ export class BaseComponent<P, D> {
     this._initProperties();
     this._initData();
     this._initExternalClasses();
+    this._initBehaviors();
   }
   /**
    *  初始化处理properties
@@ -75,5 +76,17 @@ export class BaseComponent<P, D> {
       return;
     }
     this.externalClasses = this.externalClasses.reduce((pre = [], key: string) => [...pre, ...this[key]], []);
+  }
+  /**
+   * behaviors 逻辑复用
+   * @returns
+   */
+  public _initBehaviors() {
+    if (!this.behaviors) {
+      return;
+    }
+    this.behaviors = this.behaviors.reduce((pre = [], key: string) => [...pre, ...this[key]], []);
+    console.log(this.behaviors);
+
   }
 }

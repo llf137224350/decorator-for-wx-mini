@@ -3,12 +3,13 @@ import { Component, Data, ExternalClasses, Lifetimes, Method, Observers, Prop } 
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-05 23:38:18
- * @LastEditTime: 2021-05-09 20:34:03
+ * @LastEditTime: 2021-05-11 16:58:57
  * @Description:
  */
 
 interface IProp {
   name: string;
+  myBehaviorProperty: string;
 }
 interface IData {
   age: number;
@@ -34,6 +35,7 @@ export default class HelloWorld extends BaseComponent<IProp, IData> {
   @Lifetimes
   public attached() {
     console.log('hello');
+
   }
 
   @Observers('age')

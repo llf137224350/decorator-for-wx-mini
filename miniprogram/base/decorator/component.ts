@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-06 00:04:21
- * @LastEditTime: 2021-05-09 22:36:08
+ * @LastEditTime: 2021-05-11 16:54:00
  * @Description:组件装饰器
  */
 
@@ -61,12 +61,24 @@ function Method(target: any, propertyKey: string) {
  * @param {string} propertyKey
  * @return {*}
  */
-function ExternalClasses(target: any, propertyKey?: string) {
+function ExternalClasses(target: any, propertyKey: string) {
   if (!target.externalClasses) {
     target['externalClasses'] = [];
   }
   target.externalClasses = [...target.externalClasses, propertyKey];
 }
+/**
+ * 组件逻辑服用
+ * @param target
+ * @param propertyKey
+ */
+function Behaviors(target: any, propertyKey: string) {
+  if (!target.behaviors) {
+    target['behaviors'] = [];
+  }
+  target.behaviors = [...target.behaviors, propertyKey];
+}
+
 /**
  * @description: 监听属性值的更改
  * @param {string} monitoredObject
@@ -105,4 +117,4 @@ function PageLifetimes(target: any, propertyKey: string) {
   }
   target.pageLifetimes[propertyKey] = target[propertyKey];
 }
-export { Components as Component, ExternalClasses, Prop, Data, Method, Observers, Lifetimes, PageLifetimes };
+export { Components as Component, ExternalClasses, Behaviors, Prop, Data, Method, Observers, Lifetimes, PageLifetimes };
