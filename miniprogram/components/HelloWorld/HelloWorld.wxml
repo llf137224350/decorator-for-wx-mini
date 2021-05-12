@@ -1,4 +1,6 @@
 <view class="container hello world"  style="font-size: {{age}}px" catchtap="handleClick">
   {{name}} - {{age}}
+
+  <button catchtap="handleTest">测试</button>
 </view>
 

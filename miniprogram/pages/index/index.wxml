@@ -2,6 +2,7 @@
   {{name}}
   <hello-world
     hello="hello"
+    name="{{name}}"
     world="world"
   />
 </view>
