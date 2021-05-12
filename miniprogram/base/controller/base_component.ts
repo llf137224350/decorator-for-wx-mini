@@ -1,9 +1,9 @@
-import { Lifetimes, Prop } from '../decorator/component';
+import { Lifetimes } from '../decorator/component';
 
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-09 17:07:57
- * @LastEditTime: 2021-05-12 10:47:37
+ * @LastEditTime: 2021-05-12 11:10:49
  * @Description:
  */
 interface TriggerEventOption {
@@ -46,6 +46,9 @@ export class BaseComponent<P, D> {
    */
   public _initProperties() {
     this.properties = this.__proto__.properties;
+    if (!this.properties) {
+      return;
+    }
     Object.keys(this.properties).forEach((key: string) => {
       (this.properties[key as keyof P] as { type?: unknown }).type = this[key].constructor as StringConstructor;
       (this.properties[key as keyof P] as { value?: unknown }).value = this[key];
@@ -57,6 +60,9 @@ export class BaseComponent<P, D> {
    */
   public _initData() {
     this.data = this.__proto__.data;
+    if (!this.data) {
+      return;
+    }
     Object.keys(this.data).forEach((key: string) => (this.data[key as keyof D] = this[key]));
   }
   /**
@@ -77,6 +83,9 @@ export class BaseComponent<P, D> {
    */
   @Lifetimes
   public created() {
+    if (!this.data) {
+      return;
+    }
     Object.keys(this.data).forEach((key: string) => {
       Object.defineProperty(this, key, {
         get() {
