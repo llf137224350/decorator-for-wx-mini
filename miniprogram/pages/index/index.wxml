@@ -1,3 +1,7 @@
 <view class="container">
-  <hello-world hello="hello" world="world" name="{{name}}"/>
+  {{name}}
+  <hello-world
+    hello="hello"
+    world="world"
+  />
 </view>

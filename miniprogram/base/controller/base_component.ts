@@ -1,7 +1,9 @@
+import { Lifetimes, Prop } from '../decorator/component';
+
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-09 17:07:57
- * @LastEditTime: 2021-05-12 00:00:53
+ * @LastEditTime: 2021-05-12 10:47:37
  * @Description:
  */
 interface TriggerEventOption {
@@ -32,7 +34,6 @@ export class BaseComponent<P, D> {
   public properties = {} as P;
   // 组件自己定义的数据
   public data = {} as D;
-
   public _init() {
     this._initProperties();
     this._initData();
@@ -67,5 +68,26 @@ export class BaseComponent<P, D> {
       return;
     }
     this[key] = this[key].reduce((pre = [], key: string) => [...pre, ...this[key]], []);
+  }
+
+  /**
+   * @description:  组件创建时对数据进行代理处理
+   * @param {*}
+   * @return {*}
+   */
+  @Lifetimes
+  public created() {
+    Object.keys(this.data).forEach((key: string) => {
+      Object.defineProperty(this, key, {
+        get() {
+          return this.data[key];
+        },
+        set(val) {
+          this.setData({
+            [key]: val
+          });
+        }
+      });
+    });
   }
 }

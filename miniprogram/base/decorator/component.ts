@@ -1,7 +1,7 @@
 /*
  * @Author: い 狂奔的蜗牛
  * @Date: 2021-05-06 00:04:21
- * @LastEditTime: 2021-05-11 17:00:24
+ * @LastEditTime: 2021-05-12 10:46:20
  * @Description:组件装饰器
  */
 
@@ -101,6 +101,12 @@ function Observers(monitoredObject: string) {
 function Lifetimes(target: any, propertyKey: string) {
   if (!target.lifetimes) {
     target['lifetimes'] = {};
+  }
+  if (propertyKey === 'created') {
+    const createdStr = target.created.toString();
+    if (createdStr && createdStr.indexOf('Object.keys(this.data)') === -1 && createdStr.indexOf('_super.prototype.created.call(this)') === -1) {
+      throw new Error('子类复写@Lifetimes public created()方式时，必须调用super.created();方法');
+    }
   }
   target.lifetimes[propertyKey] = target[propertyKey];
 }
