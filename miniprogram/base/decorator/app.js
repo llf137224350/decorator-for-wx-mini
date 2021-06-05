@@ -1,9 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.App = void 0;
-function AppController(Target) {
-    var target = new Target();
-    App(target);
-}
-exports.App = AppController;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXBwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiYXBwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQU1BLFNBQVMsYUFBYSxDQUFDLE1BQVc7SUFDaEMsSUFBTSxNQUFNLEdBQUcsSUFBSSxNQUFNLEVBQUUsQ0FBQztJQUM1QixHQUFHLENBQUMsTUFBTSxDQUFDLENBQUM7QUFDZCxDQUFDO0FBQ3lCLDRCQUFHIiwic291cmNlc0NvbnRlbnQiOlsiLypcbiAqIEBBdXRob3I6IOOBhCDni4LlpZTnmoTonJfniZtcbiAqIEBEYXRlOiAyMDIxLTA1LTExIDE2OjExOjE1XG4gKiBATGFzdEVkaXRUaW1lOiAyMDIxLTA1LTExIDE2OjExOjQ4XG4gKiBARGVzY3JpcHRpb246XG4gKi9cbmZ1bmN0aW9uIEFwcENvbnRyb2xsZXIoVGFyZ2V0OiBhbnkpIHtcbiAgY29uc3QgdGFyZ2V0ID0gbmV3IFRhcmdldCgpO1xuICBBcHAodGFyZ2V0KTtcbn1cbmV4cG9ydCB7IEFwcENvbnRyb2xsZXIgYXMgQXBwIH07XG4iXX0=
