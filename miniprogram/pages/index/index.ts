@@ -13,6 +13,7 @@ export default class Index extends BaseController {
 
   public onLoad() {
     super.onLoad();
+
     setTimeout(()=>{
       this.name = '你好';
     },1000);

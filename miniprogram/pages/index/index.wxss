@@ -1,6 +1,0 @@
-.container .hello {
-  color: red;
-}
-.container .world {
-  font-size: 30px;
-}

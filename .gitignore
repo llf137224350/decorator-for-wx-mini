@@ -3,3 +3,11 @@ node_modules
 .vscode
 project.config.json
 .DS_Store
+*/.DS_Store
+miniprogram/**/*.js
+!/miniprogram/libs/*.js
+miniprogram/**/*.wxss
+template/component_template/*.js
+template/page_template/*.js
+template/component_template/*.wxss
+template/page_template/*.wxss

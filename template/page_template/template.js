@@ -4,10 +4,12 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
@@ -31,4 +33,4 @@ var $ = (function (_super) {
     return $;
 }(BaseController));
 exports.default = $;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGVtcGxhdGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJ0ZW1wbGF0ZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0EsUUFBUSxDQUFDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFRVDtJQUErQixxQkFBYztJQUE3Qzs7SUFFQSxDQUFDO0lBRm9CLENBQUM7UUFEckIsVUFBVTtPQUNVLENBQUMsQ0FFckI7SUFBRCxRQUFDO0NBQUEsQUFGRCxDQUErQixjQUFjLEdBRTVDO2tCQUZvQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLy8gQHRzLW5vY2hlY2tcbidpbXBvcnQnO1xuLypcbiAqIEBBdXRob3I6IOOBhCDni4LlpZTnmoTonJfniZtcbiAqIEBEYXRlOiBkYXRlXG4gKiBATGFzdEVkaXRUaW1lOiBkYXRlXG4gKiBARGVzY3JpcHRpb246XG4gKi9cbkBDb250cm9sbGVyXG5leHBvcnQgZGVmYXVsdCBjbGFzcyAkIGV4dGVuZHMgQmFzZUNvbnRyb2xsZXIge1xuXG59XG4iXX0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGVtcGxhdGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJ0ZW1wbGF0ZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0EsUUFBUSxDQUFDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQVFUO0lBQStCLHFCQUFjO0lBQTdDOztJQUVBLENBQUM7SUFGb0IsQ0FBQztRQURyQixVQUFVO09BQ1UsQ0FBQyxDQUVyQjtJQUFELFFBQUM7Q0FBQSxBQUZELENBQStCLGNBQWMsR0FFNUM7a0JBRm9CLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBAdHMtbm9jaGVja1xuJ2ltcG9ydCc7XG4vKlxuICogQEF1dGhvcjog44GEIOeLguWllOeahOicl+eJm1xuICogQERhdGU6IGRhdGVcbiAqIEBMYXN0RWRpdFRpbWU6IGRhdGVcbiAqIEBEZXNjcmlwdGlvbjpcbiAqL1xuQENvbnRyb2xsZXJcbmV4cG9ydCBkZWZhdWx0IGNsYXNzICQgZXh0ZW5kcyBCYXNlQ29udHJvbGxlciB7XG5cbn1cbiJdfQ==

@@ -1,6 +1,14 @@
-import { App } from './base/decorator/app';
+import {BaseApp} from "./base/controller/base_app";
+
+// app globalData数据类型定义
+export interface GlobalData {
+
+}
 
 @App
-export class BaseApp implements IAppOption {
-  public globalData = {};
+export class Application extends BaseApp<GlobalData> {
+  // globalData
+  public initGlobalData(): GlobalData {
+    return {};
+  }
 }

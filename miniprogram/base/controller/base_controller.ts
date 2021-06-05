@@ -13,7 +13,8 @@ export class BaseController {
     if (!this.data) {
       return;
     }
-    const keys = Object.keys(this.data);
+    let keys = Object.keys(this.data);
+    keys = keys.filter((key) => key !== '__webviewId__');
     keys.forEach((key: string) => {
       const value = this[key];
       this._reactive(key);
